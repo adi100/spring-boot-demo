@@ -1,14 +1,19 @@
 package com.example.demo.model.db;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.Date;
 
+@Document
 public class User {
+    @Field("id")
     private Integer id;
 
     private String nationalCode;
 
     private String username;
-
+    @Field("name")
     private String realname;
 
     private String nickname;

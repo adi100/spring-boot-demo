@@ -42,4 +42,9 @@ public class DemoController {
     public void solrInsert(){
         demoService.saveSolrCompany();
     }
+
+    @RequestMapping("mongoUsers")
+    public List<User> mongoUsers(){
+        return demoService.getAllMongoUsers();
+    }
 }

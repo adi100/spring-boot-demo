@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.common.Page;
 import com.example.demo.dao.db.UserMapper;
+import com.example.demo.dao.mongo.UserRepository;
 import com.example.demo.dao.solr.CompanyRepository;
 import com.example.demo.model.db.User;
 import com.example.demo.model.solr.SolrCompany;
@@ -22,6 +23,8 @@ public class DemoService {
     private UserMapper userMapper;
     @Autowired
     private CompanyRepository companyRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public Page<User> getUser(Page<User> page){
         List<User> users = userMapper.selectByPage(page);
@@ -56,5 +59,9 @@ public class DemoService {
         company.setLogo_s("2341243");
         company.setWorkstageId_is(Arrays.asList(new Integer[]{1,2}));
         companyRepository.save(company);
+    }
+
+    public List<User> getAllMongoUsers(){
+        return userRepository.findAll();
     }
 }
