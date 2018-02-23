@@ -2,8 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.common.Page;
 import com.example.demo.model.db.User;
+import com.example.demo.model.mongo.MongoUser;
 import com.example.demo.model.solr.SolrCompany;
 import com.example.demo.service.DemoService;
+import com.mongodb.Mongo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,7 +46,7 @@ public class DemoController {
     }
 
     @RequestMapping("mongoUsers")
-    public List<User> mongoUsers(){
+    public List<MongoUser> mongoUsers(){
         return demoService.getAllMongoUsers();
     }
 }

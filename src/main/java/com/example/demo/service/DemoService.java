@@ -5,6 +5,7 @@ import com.example.demo.dao.db.UserMapper;
 import com.example.demo.dao.mongo.UserRepository;
 import com.example.demo.dao.solr.CompanyRepository;
 import com.example.demo.model.db.User;
+import com.example.demo.model.mongo.MongoUser;
 import com.example.demo.model.solr.SolrCompany;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -61,7 +62,7 @@ public class DemoService {
         companyRepository.save(company);
     }
 
-    public List<User> getAllMongoUsers(){
+    public List<MongoUser> getAllMongoUsers(){
         return userRepository.findAll();
     }
 }
