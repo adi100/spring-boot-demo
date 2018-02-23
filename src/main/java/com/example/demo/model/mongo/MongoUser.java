@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Setter@Getter
-@Document
+@Document(collection = "user")
 public class MongoUser {
     @Field("id")
     private Integer id;
