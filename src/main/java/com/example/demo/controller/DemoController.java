@@ -5,8 +5,10 @@ import com.example.demo.model.db.User;
 import com.example.demo.model.mongo.MongoUser;
 import com.example.demo.model.solr.SolrCompany;
 import com.example.demo.service.DemoService;
-import com.mongodb.Mongo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.DevicePlatform;
+import org.springframework.mobile.device.site.SitePreference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +22,9 @@ public class DemoController {
     private DemoService demoService;
 
     @RequestMapping("index")
-    public Page<User> index(HttpSession session,Page<User> page){
+    public Page<User> index(HttpSession session,Page<User> page,SitePreference site,Device device){
+        boolean b = device.getDevicePlatform() == DevicePlatform.IOS;
+
         System.out.println(session.getId());
         return demoService.getUser(page);
     }
