@@ -23,7 +23,16 @@ public class DemoController {
 
     @RequestMapping("index")
     public Page<User> index(HttpSession session,Page<User> page,SitePreference site,Device device){
-        boolean b = device.getDevicePlatform() == DevicePlatform.IOS;
+        System.out.println("site.isMobile:"+site.isMobile());
+        System.out.println("site.isTablet:"+site.isTablet());
+        System.out.println("site.isNormal:"+site.isNormal());
+
+        System.out.println("device.isMobile:"+device.isMobile());
+        System.out.println("device.isTablet:"+device.isTablet());
+        System.out.println("device.isNormal:"+device.isNormal());
+
+        System.out.println("device.Platform:"+device.getDevicePlatform());
+        System.out.println("site.name:"+site.name());
 
         System.out.println(session.getId());
         return demoService.getUser(page);
